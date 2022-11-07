@@ -1,0 +1,17 @@
+.main {
+  background-color: blanchedalmond;
+  height: 200px;
+  font-size: 20px;
+  text-align: center;
+  display: flex;
+}
+
+.aside {
+  width: 30%;
+  background-color: aliceblue;
+  height: 100%;
+}
+
+.content {
+  width: 70%;
+}
