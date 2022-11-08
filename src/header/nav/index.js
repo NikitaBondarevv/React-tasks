@@ -5,7 +5,7 @@ export const Nav = ({ list }) => (
     <ul className={styles.list}>
       {
       list
-        .map((item, index) => <li className={styles.points} href={`/${item.toLocaleLowerCase()}`} key={index}>{item}</li>)
+        .map((item, index) => <li className={styles.points} key={index}><a href={`/${item.toLocaleLowerCase()}`}>{item}</a></li>)
       }
     </ul>
   </nav>
