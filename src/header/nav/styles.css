@@ -1,0 +1,13 @@
+.navigation {
+  text-align: center;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.points {
+  padding: 0 0 10px 0;
+}
