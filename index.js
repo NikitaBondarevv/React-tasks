@@ -5,7 +5,7 @@ import { Main } from './src/main';
 import { Footer } from './src/footer';
 
 const root = createRoot( document.getElementById('app') );
-const component = (
+const CreateHTML = (
   <>
     <Header/>
     <Main/>
@@ -13,4 +13,4 @@ const component = (
   </>
 );
 
-root.render(component);
+root.render(CreateHTML);

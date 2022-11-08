@@ -10,21 +10,25 @@ const listNumbers = (from, to) => {
   return list;
 };
 
-const oddNumbers = (from, to) => listNumbers(from, to).filter((number) => number % 2 !== 0)
-  .map((number) => <li className={styles.list} key={number}>{number}</li>);
+const Numbers = (props) => {
+  if (props.odd) {
+    return listNumbers(props.from, props.to).filter((number) => number % 2 !== 0)
+      .map((number) => <li className={styles.list} key={number}>{number}</li>);
+  }
 
-const evenNumbers = (from, to) => listNumbers(from, to).filter((number) => number % 2 === 0)
-  .map((number) => <li className={styles.list} key={number}>{number}</li>);
+  if (props.even) {
+    return listNumbers(props.from, props.to).filter((number) => number % 2 === 0)
+      .map((number) => <li className={styles.list} key={number}>{number}</li>);
+  }
+
+  return listNumbers(props.from, props.to).map((number) => <li className={styles.points} key={number}>{number}</li>);
+}
 
 const ListOfNumbers = ({
   from, to, odd, even
 }) => (
   <ul className={styles.list}>
-    {
-      odd && oddNumbers(from, to)
-      || even && evenNumbers(from, to)
-      || listNumbers(from, to).map((number) => <li className={styles.points} key={number}>{number}</li>)
-    }
+    <Numbers from={from} to={to} odd={odd} even={even} />
   </ul>
 );
 
