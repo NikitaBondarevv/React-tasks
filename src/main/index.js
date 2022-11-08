@@ -23,14 +23,40 @@ const Greetings = ({ name }) => (
   </p>
 );
 
+const User = ({ name, surname, age }) => (
+  <div>
+    {name}
+    {surname}
+    {age}
+  </div>
+);
+
+const ListUsers = ({ user }) => (
+  <div>
+    {user.map((user, index) => <User key={index} name={user.name} surname={user.surname} age={user.age} />)}
+  </div>
+);
+
 export const Main = () => (
   <main className={styles.main}>
     <aside className={styles.aside}>
       <Greetings name="Nikita" />
-      aside
+      <ListUsers user={[
+        {
+          name: 'Nikita',
+          surname: 'Bondarev',
+          age: 21
+        },
+        {
+          name: 'Viktoria',
+          surname: 'Bondareva',
+          age: 42
+        }
+      ]}
+      />
     </aside>
     <div className={styles.content}>
-      content
+      <User name="Nikita" surname="Bondarev" age="21" />
     </div>
   </main>
 );
