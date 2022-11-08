@@ -1,5 +1,33 @@
 import styles from './styles.css';
 
+const listNumbers = (from, to) => {
+  const list = [];
+
+  for (let i = from; i <= to; i++) {
+    list.push(i);
+  }
+
+  return list;
+};
+
+const oddNumbers = (from, to) => listNumbers(from, to).filter((number) => number % 2 !== 0)
+  .map((number) => <li className={styles.list} key={number}>{number}</li>);
+
+const evenNumbers = (from, to) => listNumbers(from, to).filter((number) => number % 2 === 0)
+  .map((number) => <li className={styles.list} key={number}>{number}</li>);
+
+const ListOfNumbers = ({
+  from, to, odd, even
+}) => (
+  <ul className={styles.list}>
+    {
+      odd && oddNumbers(from, to)
+      || even && evenNumbers(from, to)
+      || listNumbers(from, to).map((number) => <li className={styles.points} key={number}>{number}</li>)
+    }
+  </ul>
+);
+
 const time = () => {
   const hours = new Date().getHours();
 
@@ -18,17 +46,14 @@ const time = () => {
 };
 
 const Greetings = ({ name }) => (
+
   <p>
     {name ? `${time().replace('!', '')}, ${name} !` : time()}
   </p>
 );
 
 const User = ({ name, surname, age }) => (
-  <div>
-    {name}
-    {surname}
-    {age}
-  </div>
+  <span>{`${name} ${surname} ${age}`}</span>
 );
 
 const ListUsers = ({ user }) => (
@@ -56,6 +81,7 @@ export const Main = () => (
       />
     </aside>
     <div className={styles.content}>
+      <ListOfNumbers from="1" to="20" even />
       <User name="Nikita" surname="Bondarev" age="21" />
     </div>
   </main>
