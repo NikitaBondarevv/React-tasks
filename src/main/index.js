@@ -11,17 +11,17 @@ const listNumbers = (from, to) => {
 };
 
 const Numbers = (props) => {
+  let list = listNumbers(props.from, props.to);
+
   if (props.odd) {
-    return listNumbers(props.from, props.to).filter((number) => number % 2 !== 0)
-      .map((number) => <li className={styles.list} key={number}>{number}</li>);
+    list = listNumbers(props.from, props.to).filter((number) => number % 2 !== 0);
   }
 
   if (props.even) {
-    return listNumbers(props.from, props.to).filter((number) => number % 2 === 0)
-      .map((number) => <li className={styles.list} key={number}>{number}</li>);
+    list = listNumbers(props.from, props.to).filter((number) => number % 2 === 0);
   }
 
-  return listNumbers(props.from, props.to).map((number) => <li className={styles.points} key={number}>{number}</li>);
+  return list.map((number) => <li className={styles.points} key={number}>{number}</li>);
 }
 
 const ListOfNumbers = ({
@@ -32,7 +32,7 @@ const ListOfNumbers = ({
   </ul>
 );
 
-const time = () => {
+const greetings = () => {
   const hours = new Date().getHours();
 
   if (hours >= 22 || hours < 3) {
@@ -52,17 +52,17 @@ const time = () => {
 const Greetings = ({ name }) => (
 
   <p>
-    {name ? `${time().replace('!', '')}, ${name} !` : time()}
+    {name ? `${greetings().replace('!', '')}, ${name} !` : greetings()}
   </p>
 );
 
-const User = ({ name, surname, age }) => (
+const Users = ({ name, surname, age }) => (
   <span>{`${name} ${surname} ${age}`}</span>
 );
 
-const ListUsers = ({ user }) => (
+const ListUsers = ({ users }) => (
   <div>
-    {user.map((user, index) => <User key={index} name={user.name} surname={user.surname} age={user.age} />)}
+    {users.map((user, index) => <Users key={index} name={user.name} surname={user.surname} age={user.age} />)}
   </div>
 );
 
@@ -70,7 +70,7 @@ export const Main = () => (
   <main className={styles.main}>
     <aside className={styles.aside}>
       <Greetings name="Nikita" />
-      <ListUsers user={[
+      <ListUsers users={[
         {
           name: 'Nikita',
           surname: 'Bondarev',
@@ -86,7 +86,7 @@ export const Main = () => (
     </aside>
     <div className={styles.content}>
       <ListOfNumbers from="1" to="20" even />
-      <User name="Nikita" surname="Bondarev" age="21" />
+      <Users name="Nikita" surname="Bondarev" age="21" />
     </div>
   </main>
 );
