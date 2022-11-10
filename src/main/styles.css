@@ -1,0 +1,27 @@
+.main {
+  background-color: blanchedalmond;
+  min-height: 200px;
+  font-size: 20px;
+  text-align: center;
+  display: flex;
+}
+
+.aside {
+  width: 30%;
+  background-color: aliceblue;
+}
+
+.content {
+  width: 70%;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 10px;
+}
+
+.points {
+  padding: 10px;
+}
