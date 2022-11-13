@@ -44,7 +44,7 @@ export class Main extends Component {
   async getPosts(userId) {
     const response = await fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`);
     const posts = await response.json();
-    this.setState({ posts })
+    this.setState({ posts });
   }
 
   render() {
