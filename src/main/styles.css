@@ -2,26 +2,31 @@
   background-color: blanchedalmond;
   min-height: 200px;
   font-size: 20px;
-  text-align: center;
   display: flex;
 }
 
 .aside {
   width: 30%;
   background-color: aliceblue;
+  text-align: center;
 }
 
 .content {
   width: 70%;
 }
 
-.list {
-  list-style: none;
-  display: flex;
-  margin: 0;
-  padding: 10px;
+.user {
+  cursor: pointer;
+  padding: 5px;
 }
 
-.points {
+.posts {
+  font-size: 30px;
+  margin: 0;
+  padding: 25px;
+}
+
+.post {
+  font-size: 20px;
   padding: 10px;
 }

@@ -3,4 +3,16 @@
   min-height: 100px;
   font-size: 16px;
   padding: 10px;
+  text-align: center;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 10px;
+}
+
+.points {
+  padding: 10px;
 }
