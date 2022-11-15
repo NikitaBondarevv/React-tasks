@@ -2,7 +2,7 @@
   background: red;
 }
 
-#button {
+.button {
   min-width: 50px;
   min-height: 30px;
   border-radius: 10px;

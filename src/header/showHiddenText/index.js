@@ -7,7 +7,6 @@ const text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
 export class ShowHiddenText extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       text: '',
       textButton: 'Show'

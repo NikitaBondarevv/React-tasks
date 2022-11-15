@@ -4,7 +4,7 @@ import styles from './styles.css'
 
 export class Button extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       active: ''
     }
@@ -15,7 +15,6 @@ export class Button extends Component {
       if (prevState.active === '') {
         return { active: prevState.active = styles.active }
       }
-
       return { active: '' }
     })
   }
@@ -23,7 +22,7 @@ export class Button extends Component {
   render() {
     const { active } = this.state;
     return (
-      <button type="button" onClick={this.addClassActive} id={styles.button} className={active}>
+      <button type="button" onClick={this.addClassActive} className={`${active} ${styles.button}`}>
         Click
       </button>
     )
