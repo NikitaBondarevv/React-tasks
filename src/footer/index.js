@@ -10,15 +10,15 @@ const listNumbers = (from, to) => {
   return list;
 };
 
-const Numbers = (props) => {
-  let list = listNumbers(props.from, props.to);
+const Numbers = ({ from, to , odd, even}) => {
+  let list = listNumbers(from, to);
 
-  if (props.odd) {
-    list = listNumbers(props.from, props.to).filter((number) => number % 2 !== 0);
+  if (odd) {
+    list = list.filter((number) => number % 2 !== 0);
   }
 
-  if (props.even) {
-    list = listNumbers(props.from, props.to).filter((number) => number % 2 === 0);
+  if (even) {
+    list = list.filter((number) => number % 2 === 0);
   }
 
   return list.map((number) => <li className={styles.points} key={number}>{number}</li>);
