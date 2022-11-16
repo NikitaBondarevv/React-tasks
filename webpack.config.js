@@ -41,6 +41,7 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: 'eslint-loader',
+        options: { emitWarning: true }
       }       
     ]
   },
@@ -67,5 +68,8 @@ module.exports = {
   devServer: {
     port: 9000,
     hot: true,
+    client: {
+      overlay: false,
+    },   
   }
 };

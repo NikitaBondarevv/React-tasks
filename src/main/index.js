@@ -1,36 +1,6 @@
+import { Component } from 'react';
+
 import styles from './styles.css';
-
-const listNumbers = (from, to) => {
-  const list = [];
-
-  for (let i = from; i <= to; i++) {
-    list.push(i);
-  }
-
-  return list;
-};
-
-const Numbers = (props) => {
-  let list = listNumbers(props.from, props.to);
-
-  if (props.odd) {
-    list = listNumbers(props.from, props.to).filter((number) => number % 2 !== 0);
-  }
-
-  if (props.even) {
-    list = listNumbers(props.from, props.to).filter((number) => number % 2 === 0);
-  }
-
-  return list.map((number) => <li className={styles.points} key={number}>{number}</li>);
-}
-
-const ListOfNumbers = ({
-  from, to, odd, even
-}) => (
-  <ul className={styles.list}>
-    <Numbers from={from} to={to} odd={odd} even={even} />
-  </ul>
-);
 
 const greetings = () => {
   const hours = new Date().getHours();
@@ -50,43 +20,60 @@ const greetings = () => {
 };
 
 const Greetings = ({ name }) => (
-
   <p>
     {name ? `${greetings().replace('!', '')}, ${name} !` : greetings()}
   </p>
 );
 
-const Users = ({ name, surname, age }) => (
-  <span>{`${name} ${surname} ${age}`}</span>
-);
+export class Main extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      users: [],
+      posts: []
+    };
+    this.getUsers();
+  }
 
-const ListUsers = ({ users }) => (
-  <div>
-    {users.map((user, index) => <Users key={index} name={user.name} surname={user.surname} age={user.age} />)}
-  </div>
-);
+  async getUsers() {
+    const response = await fetch('https://jsonplaceholder.typicode.com/users');
+    const users = await response.json();
+    this.setState({ users });
+  }
 
-export const Main = () => (
-  <main className={styles.main}>
-    <aside className={styles.aside}>
-      <Greetings name="Nikita" />
-      <ListUsers users={[
-        {
-          name: 'Nikita',
-          surname: 'Bondarev',
-          age: 21
-        },
-        {
-          name: 'Viktoria',
-          surname: 'Bondareva',
-          age: 42
-        }
-      ]}
-      />
-    </aside>
-    <div className={styles.content}>
-      <ListOfNumbers from="1" to="20" even />
-      <Users name="Nikita" surname="Bondarev" age="21" />
-    </div>
-  </main>
-);
+  async getPosts(userId) {
+    const response = await fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`);
+    const posts = await response.json();
+    this.setState({ posts });
+  }
+
+  render() {
+    const { users, posts } = this.state;
+    return (
+      <main className={styles.main}>
+        <aside className={styles.aside}>
+          <Greetings name="user" />
+          <ul>
+            {users.map(
+              (user) => (
+                <li
+                  className={styles.user}
+                  onClick={() => this.getPosts(user.id)}
+                  key={user.id}
+                >
+                  {user.name}
+                </li>
+              )
+            )}
+          </ul>
+        </aside>
+        <div className={styles.content}>
+          <ul className={styles.posts}>
+            Posts:
+            {posts.map((post, index) => <li className={styles.post} key={index}>{post.body}</li>)}
+          </ul>
+        </div>
+      </main>
+    )
+  }
+}

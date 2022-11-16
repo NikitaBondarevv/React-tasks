@@ -5,7 +5,9 @@
 .list {
   list-style: none;
   padding: 0;
+  display: flex;
   margin: 0;
+  column-gap: 30px;
 }
 
 .points {
