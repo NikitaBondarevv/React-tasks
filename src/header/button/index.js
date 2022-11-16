@@ -3,20 +3,12 @@ import { Component } from 'react';
 import styles from './styles.css'
 
 export class Button extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      active: ''
-    }
+  state = {
+    active: ''
   }
 
   addClassActive = () => {
-    this.setState((prevState) => {
-      if (prevState.active === '') {
-        return { active: prevState.active = styles.active }
-      }
-      return { active: '' }
-    })
+    this.setState({ active: this.state.active ? '' : styles.active });
   }
 
   render() {

@@ -58,8 +58,7 @@ export class Main extends Component {
               (user) => (
                 <li
                   className={styles.user}
-                  data-id={user.id}
-                  onClick={(e) => this.getPosts(e.target.dataset.id)}
+                  onClick={() => this.getPosts(user.id)}
                   key={user.id}
                 >
                   {user.name}
