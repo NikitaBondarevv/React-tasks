@@ -1,7 +1,7 @@
 import { Component } from 'react';
 
 import styles from './styles.css';
-import { Clock } from './clock'
+import { Clock } from './clock';
 
 export class DateNow extends Component {
   state = {
@@ -12,7 +12,7 @@ export class DateNow extends Component {
     const { display } = this.state;
 
     this.setState({ display: !display });
-  };
+  }
 
   render() {
     const { display } = this.state;
