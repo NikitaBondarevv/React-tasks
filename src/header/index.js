@@ -5,7 +5,6 @@ import { ShowHiddenText } from './showHiddenText';
 
 export const Header = () => (
   <header className={styles.header}>
-    header
     <Nav list={['Home', 'Products', 'Contacts']} />
     <Button />
     <ShowHiddenText />

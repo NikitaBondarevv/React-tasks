@@ -1,0 +1,15 @@
+.date {
+  margin: 0;
+}
+
+.clock {
+  height: 90px;
+  width: 110px;
+}
+
+.button {
+  min-width: 50px;
+  min-height: 30px;
+  border-radius: 10px;
+  font-size: 20px;
+}

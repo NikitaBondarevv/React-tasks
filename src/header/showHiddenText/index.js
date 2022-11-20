@@ -10,7 +10,7 @@ export class ShowHiddenText extends Component {
   };
 
   showHiddenText = () => {
-    this.setState({show: this.state.show ? false : true});
+    this.setState({ show: !this.state.show });
   }
 
   render() {
