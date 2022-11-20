@@ -7,14 +7,14 @@ export class Button extends Component {
     active: ''
   }
 
-  addClassActive = () => {
+  toggleClassActive = () => {
     this.setState({ active: this.state.active ? '' : styles.active });
   }
 
   render() {
     const { active } = this.state;
     return (
-      <button type="button" onClick={this.addClassActive} className={`${active} ${styles.button}`}>
+      <button type="button" onClick={this.toggleClassActive} className={`${active} ${styles.button}`}>
         Click
       </button>
     )

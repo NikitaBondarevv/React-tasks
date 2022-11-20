@@ -6,28 +6,23 @@ const text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
 
 export class ShowHiddenText extends Component {
   state = {
-    text: '',
-    textButton: 'Show'
+    show: true
   };
 
   showHiddenText = () => {
-    this.setState(
-      {
-        text: this.state.text ? '' : text,
-        textButton: this.state.textButton === 'Show' ? 'Hide' : 'Show'
-      },
-    )
+    this.setState({show: this.state.show ? false : true});
   }
 
   render() {
-    const { text, textButton } = this.state;
+    const { show } = this.state;
+    
     return (
       <div>
         <button type="button" onClick={this.showHiddenText} className={styles.showHiddenButton}>
-          {textButton}
+          {show ? 'Hide' : 'Show'}
         </button>
         <p>
-          {text}
+          {show ? '' : text}
         </p>
       </div>
     )

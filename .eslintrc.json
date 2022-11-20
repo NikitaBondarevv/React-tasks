@@ -37,7 +37,12 @@
     "no-param-reassign": ["error", { "props": false }],
     "no-return-assign": 0,
     "react/function-component-definition": [2, { "namedComponents": "arrow-function" }],
-    "semi": 0
+    "semi": 0,
+    "react/state-in-constructor": [1, "never"],
+    "react/no-access-state-in-setstate": 0,
+    "object-curly-newline": ["error", {
+      "ExportDeclaration": { "minProperties": 3 }
+    }]
   },
   "parser": "babel-eslint",
   "plugins": [
