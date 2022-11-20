@@ -25,11 +25,11 @@ export class Clock extends Component {
 
     return (
       <div className={styles.clock}>
-        <button type="button" className={styles.button} onClick={() => this.setState({ show: !show }, this.componentWillUnmount)}>
+        <button type="button" className={styles.button} onClick={() => this.setState({ show: !show })}>
           {show ? 'Hide' : 'Show'}
         </button>
-        <p className={styles.date}>{show && time.toLocaleDateString()}</p>
-        <time>{show && time.toLocaleTimeString()}</time>
+        {show && <p className={styles.date}>{show && time.toLocaleDateString()}</p>}
+        {show && <time>{show && time.toLocaleTimeString()}</time>}
       </div>
     )
   }

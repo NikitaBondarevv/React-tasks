@@ -4,13 +4,10 @@ import { Mount } from '../index'
 import styles from './styles.css';
 
 export class Content extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      counter: 0,
-      show: true,
-    };
-  }
+  state = {
+    counter: 0,
+    show: true,
+  };
 
   toggleBackground = () => {
     const { counter } = this.state;
@@ -29,16 +26,28 @@ export class Content extends Component {
     return code;
   }
 
+  increaseNumber = () => {
+    const { counter } = this.state;
+    
+    this.setState({ counter: counter + 1 });
+  }
+
+  toggleShowHide = () => {
+    const { show } = this.state;
+
+    this.setState({ show: !show });
+  }
+
   render() {
     const { counter, show } = this.state;
 
     return (
       <div className={styles.info}>
-        <button type="button" onClick={() => this.setState({ counter: counter + 1 })}>Inc</button>
+        <button type="button" onClick={this.increaseNumber}>Inc</button>
         <span className={styles.count}>{counter}</span>
         <br />
         <br />
-        <button type="button" onClick={() => this.setState({ show: !show })}>
+        <button type="button" onClick={this.toggleShowHide}>
           {show ? 'Destroy' : 'Create'}
         </button>
         {show && <Mount styles={this.toggleBackground()} code={counter} />}

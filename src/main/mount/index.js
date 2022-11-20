@@ -18,7 +18,7 @@ export class Mount extends Component {
         <span>
           The code from props is {this.props.code}
           <br />
-          The code from state is {this.props.status}
+          The code from state is {this.state.status}
         </span>
       </code>
     );
