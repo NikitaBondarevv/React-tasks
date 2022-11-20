@@ -1,15 +1,24 @@
 import { Component } from 'react';
 
-import { Mount } from '../index'
 import styles from './styles.css';
+
+const Mount = ({ styles, code }) => (
+  <code className={styles}>
+    <span>
+      The code from props is {code}
+      <br />
+      The code from state is init
+    </span>
+  </code>
+)
 
 export class Content extends Component {
   state = {
     counter: 0,
-    show: true,
+    show: true
   };
 
-  toggleBackground = () => {
+  getBackgroundColor = () => {
     const { counter } = this.state;
     const { turquoise, green, blue, code } = styles;
 
@@ -28,7 +37,7 @@ export class Content extends Component {
 
   increaseNumber = () => {
     const { counter } = this.state;
-    
+
     this.setState({ counter: counter + 1 });
   }
 
@@ -50,7 +59,7 @@ export class Content extends Component {
         <button type="button" onClick={this.toggleShowHide}>
           {show ? 'Destroy' : 'Create'}
         </button>
-        {show && <Mount styles={this.toggleBackground()} code={counter} />}
+        {show && <Mount styles={this.getBackgroundColor()} code={counter} />}
       </div>
     );
   }

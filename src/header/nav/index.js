@@ -1,5 +1,5 @@
 import styles from './styles.css';
-import { Clock } from './clock'
+import { DateNow } from './dateNow'
 
 export const Nav = ({ list }) => (
   <nav className={styles.navigation}>
@@ -14,6 +14,6 @@ export const Nav = ({ list }) => (
           )
       }
     </ul>
-    <Clock />
+    <DateNow />
   </nav>
 );

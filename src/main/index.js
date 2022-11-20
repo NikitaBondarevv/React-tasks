@@ -1,7 +1,7 @@
 import { Component } from 'react';
 
 import styles from './styles.css';
-import { Content } from './mount/content'
+import { Content } from './content'
 
 const greetings = () => {
   const hours = new Date().getHours();

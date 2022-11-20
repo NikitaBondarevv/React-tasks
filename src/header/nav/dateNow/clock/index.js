@@ -24,10 +24,7 @@ export class Clock extends Component {
     const { time, show } = this.state;
 
     return (
-      <div className={styles.clock}>
-        <button type="button" className={styles.button} onClick={() => this.setState({ show: !show })}>
-          {show ? 'Hide' : 'Show'}
-        </button>
+      <div>
         {show && <p className={styles.date}>{show && time.toLocaleDateString()}</p>}
         {show && <time>{show && time.toLocaleTimeString()}</time>}
       </div>
