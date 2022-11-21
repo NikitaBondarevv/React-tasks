@@ -1,6 +1,7 @@
 import { Component } from 'react';
 
 import styles from './styles.css';
+import { Content } from './content'
 
 const greetings = () => {
   const hours = new Date().getHours();
@@ -76,6 +77,7 @@ export class Main extends Component {
             {posts.map((post, index) => <li className={styles.post} key={index}>{post.body}</li>)}
           </ul>
         </div>
+        <Content />
       </main>
     )
   }

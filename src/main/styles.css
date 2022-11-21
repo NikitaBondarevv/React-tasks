@@ -24,6 +24,8 @@
   font-size: 30px;
   margin: 0;
   padding: 25px;
+  min-width: 400px;
+  max-width: 950px;
 }
 
 .post {

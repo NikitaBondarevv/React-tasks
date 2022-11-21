@@ -1,4 +1,5 @@
 import styles from './styles.css';
+import { DateNow } from './dateNow'
 
 export const Nav = ({ list }) => (
   <nav className={styles.navigation}>
@@ -13,5 +14,6 @@ export const Nav = ({ list }) => (
           )
       }
     </ul>
+    <DateNow />
   </nav>
 );

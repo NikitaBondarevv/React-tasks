@@ -10,7 +10,7 @@ const listNumbers = (from, to) => {
   return list;
 };
 
-const Numbers = ({ from, to , odd, even}) => {
+const Numbers = ({ from, to, odd, even }) => {
   let list = listNumbers(from, to);
 
   if (odd) {
