@@ -25,8 +25,8 @@ export class Clock extends Component {
 
     return (
       <div>
-        {show && <p className={styles.date}>{show && time.toLocaleDateString()}</p>}
-        {show && <time>{show && time.toLocaleTimeString()}</time>}
+        {show && <p className={styles.date}>{time.toLocaleDateString()}</p>}
+        {show && <time>{time.toLocaleTimeString()}</time>}
       </div>
     )
   }
