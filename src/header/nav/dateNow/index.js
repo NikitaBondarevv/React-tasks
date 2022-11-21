@@ -8,7 +8,7 @@ export class DateNow extends Component {
     display: true
   }
 
-  showHideClock = () => {
+  toggleVisibility = () => {
     const { display } = this.state;
 
     this.setState({ display: !display });
@@ -19,7 +19,7 @@ export class DateNow extends Component {
 
     return (
       <div className={styles.clock}>
-        <button type="button" className={styles.button} onClick={this.showHideClock}>
+        <button type="button" className={styles.button} onClick={this.toggleVisibility}>
           {display ? 'Hide' : 'Show'}
         </button>
         {display && <Clock />}
