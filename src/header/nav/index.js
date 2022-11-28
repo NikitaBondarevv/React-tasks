@@ -1,5 +1,8 @@
 import styles from './styles.css';
 import { DateNow } from './dateNow'
+import { EditableText } from './editableText'
+
+const logText = text => console.log(text);
 
 export const Nav = ({ list }) => (
   <nav className={styles.navigation}>
@@ -14,6 +17,7 @@ export const Nav = ({ list }) => (
           )
       }
     </ul>
+    <EditableText onloose={logText}/>
     <DateNow />
   </nav>
 );
